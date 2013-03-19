@@ -1,5 +1,13 @@
 BALAULA::Application.routes.draw do
 
+  resources :courses do
+    resources :resources
+  end
+
+  resources :resources do
+    resources :courses
+  end
+
   root to: 'static_pages#home'
 
   match '/help',    to: 'static_pages#help'
