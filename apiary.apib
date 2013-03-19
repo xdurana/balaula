@@ -1,0 +1,121 @@
+HOST: http://www.google.com
+
+--- BALAULA ---
+---
+The Library in the Classroom
+---
+
+--
+Aula
+--
+Gets the resource list of a course
+GET /courses/{idc}/resources/
+< 200
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  },
+  "resources": [
+{ "idr":"1", "url": "/resources/1", "type": "article", "name": "Xerrada TEC de Daphne Koller, fundadora de Coursera" },
+{ "idr":"2", "url": "/resources/2", "type": "article", "name": "Orientacions sobre els debats virtuals" },
+{ "idr":"3", "url": "/resources/3", "type": "bibliography", "name": "Less than nothing : Hegel and the shadow of dialectical materialism" },
+{ "idr":"4", "url": "/resources/4", "type": "bibliography", "name": "Estudios culturales : reflexiones sobre el multiculturalismo" },
+{ "idr":"5", "url": "/resources/5", "type": "bibliography", "name": "Is economic growth sustainable?" },
+{ "idr":"6", "url": "/resources/6", "type": "monographic", "name": "Fonaments tecnològics de l'e-learning" },
+{ "idr":"7", "url": "/resources/7", "type": "exam", "name": "Fonaments tecnològics de l'e-learning - Examen 2013/05" }
+] }
+
+Links a resource to a course
+POST /courses/{idc}/resources/{idr}
+< 201
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
+
+Unlinks a resource from a course
+DELETE /courses/{idc}/resources/{idr}
+< 200
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
+
+Gets the list of resources of an activity
+GET /activities/{idk}/resources/
+< 200
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
+
+Links a resource to an activity
+POST /activities/{idk}/resources/{idr}
+< 201
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
+
+Unlinks a resource from an activity
+DELETE /activities/{idk}/resources/{idr}
+< 200
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
+
+Creates a new resource
+POST /resources
+> Content-Type: application/json
+{ "type": "bibliography", "name": "The Political economy of communication " }
+< 201
+< Content-Type: application/json
+{ "response": {
+    "status": "ok",
+    "url": "/resources/15"
+  }
+}
+
+Updates a resource
+POST /resources/{idr}
+< 201
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
+
+Gets the resource information
+GET /resources/{idr}
+< 200
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
+
+Gets a filtered list of resources
+GET /resources/{?filter}
+< 200
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
+
+Creates a new resource
+DELETE /resources/{idr}
+> Content-Type: application/json
+{ "product":"1AB23ORM", "quantity": 2 }
+< 200
+< Content-Type: application/json
+{ "response": {
+    "status": "ok"
+  }
+}
