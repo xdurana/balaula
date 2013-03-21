@@ -46,3 +46,5 @@ group :test do
 end
 
 gem "mongoid", "~> 3.0.0"
+gem "ims-lti"
+gem "daemons", "~> 1.1.9"
