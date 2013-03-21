@@ -3,6 +3,14 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 
+gem "mongoid", "~> 3.0.0"
+gem "ims-lti"
+gem "daemons", "~> 1.1.9"
+
+gem "marc", "~> 0.5.0"
+
+gem "nokogiri", "~> 1.5.9"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -44,7 +52,3 @@ end
 group :test do
   gem 'capybara', '1.1.2'
 end
-
-gem "mongoid", "~> 3.0.0"
-gem "ims-lti"
-gem "daemons", "~> 1.1.9"

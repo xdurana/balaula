@@ -70,6 +70,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    marc (0.5.0)
     mime-types (1.21)
     mongoid (3.0.23)
       activemodel (~> 3.1)
@@ -78,7 +79,7 @@ GEM
       tzinfo (~> 0.3.22)
     moped (1.4.3)
     multi_json (1.7.1)
-    nokogiri (1.5.7)
+    nokogiri (1.5.9)
     oauth (0.4.7)
     origin (1.0.11)
     polyglot (0.3.3)
@@ -162,7 +163,9 @@ DEPENDENCIES
   daemons (~> 1.1.9)
   ims-lti
   jquery-rails
+  marc (~> 0.5.0)
   mongoid (~> 3.0.0)
+  nokogiri (~> 1.5.9)
   rails (= 3.2.13)
   rspec-rails (= 2.11.0)
   sass-rails (~> 3.2.3)

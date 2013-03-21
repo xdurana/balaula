@@ -8,6 +8,12 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
+#MARCXML Parser
+require "marc"
+
+#An HTML, XML, SAX, & Reader parser with the ability to search documents via XPath or CSS3 selectors
+require "nokogiri"
+
 #LTI Provider
 require 'ims/lti'
 require 'oauth/request_proxy/rack_request'
