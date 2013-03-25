@@ -32,6 +32,10 @@ def get_xrecord_courses(xrecord)
 	get_xrecord_fields(xrecord, '690','a')
 end
 
+def get_xrecord_authors(xrecord)
+	get_xrecord_fields(xrecord, '100','a')
+end
+
 def exists?(xrecord)
 	xrecord.xpath("//NULLRECORD").empty?
 end
@@ -40,8 +44,8 @@ def load_xrecord(bibid)
 	xrecord = Nokogiri::XML(open(get_xrecord_url(bibid)))
 	if exists?(xrecord)
 	  resource = Resource.find_or_create_by(bibid: bibid)
-		#puts bibid << ": " << get_xrecord_title(xrecord) << "-->"
 
+	  #courses
 		get_xrecord_courses(xrecord).each do |c|
 			code = text(c).match(/(.*) \((.{2}\..{3})\)/) {|m|
 				name = $1
@@ -53,10 +57,23 @@ def load_xrecord(bibid)
 			}
 		end
 
-		resource.name = get_xrecord_title(xrecord)
+		#authors
+		get_xrecord_authors(xrecord).each do |a|
+			name = text(a)
+			author = Author.find_or_create_by(name: name)
+			author.save!
+			resource.authors.push author
+		end
+
+		resource.bibid = bibid
+		resource.name = get_xrecord_title(xrecord).sub(/ \//,'')
   	resource.save!
 	end
 end
+
+Resource.delete_all
+Course.delete_all
+Author.delete_all
 
 for i in 1000001..1000068
 	load_xrecord("b" << i.to_s)

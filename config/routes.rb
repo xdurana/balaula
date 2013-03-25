@@ -1,5 +1,8 @@
 BALAULA::Application.routes.draw do
 
+  resources :authors
+
+
   get "authenticate/login"
 
   resources :courses do

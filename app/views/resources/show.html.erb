@@ -19,5 +19,16 @@
   </ul>
 </p>
 
+<p>
+	<b>Authors:</b>
+	<ul>
+    <% for author in @resource.authors %>
+    <li>
+    <%= link_to author.name, author_path(author) %>
+  	</li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Back', resources_path %>
