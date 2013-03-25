@@ -1,7 +1,6 @@
 class Resource
-  
   include Mongoid::Document
-  
+
   field :name, type: String
   field :bibid, type: String
   field :raw, type: String

@@ -14,7 +14,8 @@ require "marc"
 #An HTML, XML, SAX, & Reader parser with the ability to search documents via XPath or CSS3 selectors
 require "nokogiri"
 
-require "unicode"
+#A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3
+require "kaminari"
 
 #LTI Provider
 require 'ims/lti'

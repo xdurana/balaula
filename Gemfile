@@ -11,7 +11,8 @@ gem "marc", "~> 0.5.0"
 
 gem "nokogiri", "~> 1.5.9"
 
-gem "unicode"
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3
+gem "kaminari"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

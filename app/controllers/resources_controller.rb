@@ -2,7 +2,8 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all.sort({courses_count: -1})
+    @resources = Resource.all.page(params[:page])
+    #Resource.all.sort({courses_count: -1})
 
     respond_to do |format|
       format.html # index.html.erb
