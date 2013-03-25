@@ -52,6 +52,7 @@ def load_xrecord(bibid)
 				code = $2.sub(/\./,'')
 				course = Course.find_or_create_by(code: code)
 				course.name = name
+				course.resources_count = course.resources.count
 				course.save!
 				resource.courses.push course
 			}
@@ -67,6 +68,7 @@ def load_xrecord(bibid)
 
 		resource.bibid = bibid
 		resource.name = get_xrecord_title(xrecord).sub(/ \//,'')
+		resource.courses_count = resource.courses.count
   	resource.save!
 	end
 end
@@ -75,6 +77,6 @@ Resource.delete_all
 Course.delete_all
 Author.delete_all
 
-for i in 1000001..1000068
+for i in 1000001..1049930
 	load_xrecord("b" << i.to_s)
 end

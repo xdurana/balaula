@@ -5,6 +5,16 @@
   <%= @author.name %>
 </p>
 
+<p>
+	<b>Resources:</b>
+	<ul>
+    <% for resource in @author.resources %>
+    <li>
+    <%= link_to resource.name, resource_path(resource) %>
+  	</li>
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>

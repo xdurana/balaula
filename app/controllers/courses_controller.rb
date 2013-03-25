@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.all.sort({resources_count: -1})
 
     respond_to do |format|
       format.html # index.html.erb
