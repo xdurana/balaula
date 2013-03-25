@@ -14,6 +14,8 @@ require "marc"
 #An HTML, XML, SAX, & Reader parser with the ability to search documents via XPath or CSS3 selectors
 require "nokogiri"
 
+require "unicode"
+
 #LTI Provider
 require 'ims/lti'
 require 'oauth/request_proxy/rack_request'

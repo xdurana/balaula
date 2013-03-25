@@ -2,11 +2,22 @@
 
 <p>
   <b>Name:</b>
-  <%= @resource.bibid %>
   <%= @resource.name %>
-  <%= @resource.raw %>
 </p>
-
+<p>
+  <b>Bibid:</b>
+  <%= @resource.bibid %>
+</p>
+<p>
+	<b>Courses:</b>
+	<ul>
+    <% for course in @resource.courses %>
+    <li>
+    <%= link_to course.name, course_path(course) %>
+  	</li>
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Back', resources_path %>

@@ -11,6 +11,8 @@ gem "marc", "~> 0.5.0"
 
 gem "nokogiri", "~> 1.5.9"
 
+gem "unicode"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
