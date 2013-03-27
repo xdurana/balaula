@@ -1,0 +1,28 @@
+<p>
+  <%= @resources.count %> resources
+</p>
+
+<%= form_for :search, :method => 'get', :url => { :controller => 'resources', :action => 'search' } do %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<%= link_to 'All Resources', resources_path %> | <%= link_to 'New Resource', new_resource_path %>
+<%= paginate @resources %>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @resources.each do |resource| %>
+  <tr>
+    <td><%= link_to resource.name, resource %></td>
+    <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+    <td><%= link_to 'Delete', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

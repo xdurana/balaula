@@ -6,6 +6,9 @@ BALAULA::Application.routes.draw do
   get "authenticate/login"
 
   resources :courses do
+    collection do
+      get :search
+    end
     resources :resources
   end
 

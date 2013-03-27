@@ -4,6 +4,8 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all.page(params[:page])
 
+    drop_breadcrumb("Courses")
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @courses }
@@ -14,6 +16,9 @@ class CoursesController < ApplicationController
   # GET /courses/1.json
   def show
     @course = Course.find(params[:id])
+
+    drop_breadcrumb("Courses", courses_path)
+    drop_breadcrumb(@course.name)    
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +31,9 @@ class CoursesController < ApplicationController
   def new
     @course = Course.new
 
+    drop_breadcrumb("Courses", courses_path)
+    drop_breadcrumb("New course")    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @course }
@@ -35,6 +43,10 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
+
+    drop_breadcrumb("Courses", courses_path)
+    drop_breadcrumb(@course.name, courses_path(@course))
+    drop_breadcrumb("Edit")    
   end
 
   # POST /courses
@@ -81,5 +93,19 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /courses/?search
+  # GET /courses.json/?search
+  def search
+    @courses = Course.where(name: /#{Regexp.escape(params[:q])}/).page(params[:page])
+
+    drop_breadcrumb("Courses", courses_path)
+    drop_breadcrumb("Search")
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @courses }
+    end    
+  end  
 
 end

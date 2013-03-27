@@ -4,6 +4,8 @@ class ResourcesController < ApplicationController
   def index
     @resources = Resource.all.page(params[:page])
 
+    drop_breadcrumb("Resources")    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @resources }
@@ -14,6 +16,9 @@ class ResourcesController < ApplicationController
   # GET /resources/1.json
   def show
     @resource = Resource.find(params[:id])
+
+    drop_breadcrumb("Resources", resources_path)
+    drop_breadcrumb(@resource.name)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +31,9 @@ class ResourcesController < ApplicationController
   def new
     @resource = Resource.new    
 
+    drop_breadcrumb("Resources", resources_path)
+    drop_breadcrumb("New resource")
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @resource }
@@ -35,6 +43,11 @@ class ResourcesController < ApplicationController
   # GET /resources/1/edit
   def edit
     @resource = Resource.find(params[:id])
+
+    drop_breadcrumb("Resources", resources_path)
+    drop_breadcrumb(@resource.name, resources_path(@resource))
+    drop_breadcrumb("Edit")
+
   end
 
   # POST /resources
@@ -85,8 +98,10 @@ class ResourcesController < ApplicationController
   # GET /resources/?search
   # GET /resources.json/?search
   def search
-    #@resources = Resource.full_text_search(params[:q]).page(params[:page])
     @resources = Resource.where(name: /#{Regexp.escape(params[:q])}/).page(params[:page])
+
+    drop_breadcrumb("Resources", resources_path)
+    drop_breadcrumb("Search")
 
     respond_to do |format|
       format.html

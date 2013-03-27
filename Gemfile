@@ -14,6 +14,8 @@ gem "nokogiri", "~> 1.5.9"
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3
 gem "kaminari"
 
+gem 'bootstrap_helper'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
