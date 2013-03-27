@@ -49,8 +49,13 @@ GET /activities/{idk}/resources/
 < Content-Type: application/json
 { "response": {
     "status": "ok"
-  }
-}
+  },
+  "resources": [
+{ "idr":"2", "url": "/resources/2", "type": "article", "name": "Orientacions sobre els debats virtuals" },
+{ "idr":"3", "url": "/resources/3", "type": "bibliography", "name": "Less than nothing : Hegel and the shadow of dialectical materialism" },
+{ "idr":"5", "url": "/resources/5", "type": "bibliography", "name": "Is economic growth sustainable?" },
+{ "idr":"7", "url": "/resources/7", "type": "exam", "name": "Fonaments tecnològics de l'e-learning - Examen 2013/05" }
+] }
 
 Links a resource to an activity
 POST /activities/{idk}/resources/{idr}
