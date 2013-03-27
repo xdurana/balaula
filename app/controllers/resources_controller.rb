@@ -85,7 +85,7 @@ class ResourcesController < ApplicationController
   # GET /resources/?search
   # GET /resources.json/?search
   def search
-    #@resources = Resource.full_text_search(params[:search])
+    #@resources = Resource.full_text_search(params[:q]).page(params[:page])
     @resources = Resource.where(name: /#{Regexp.escape(params[:q])}/).page(params[:page])
 
     respond_to do |format|

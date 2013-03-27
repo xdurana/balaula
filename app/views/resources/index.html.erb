@@ -9,6 +9,9 @@
   <%= submit_tag "Search", :name => nil %>
 <% end %>
 
+<%= link_to 'All Resources', resources_path %> | <%= link_to 'New Resource', new_resource_path %>
+<%= paginate @resources %>
+
 <table>
   <tr>
     <th></th>
@@ -26,9 +29,3 @@
   </tr>
 <% end %>
 </table>
-
-<%= paginate @resources %>
-
-<br />
-
-<%= link_to 'New Resource', new_resource_path %>
