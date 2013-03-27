@@ -111,8 +111,12 @@ GET /resources/{?filter}
 < Content-Type: application/json
 { "response": {
     "status": "ok"
-  }
-}
+  },
+  "resources": [
+{ "idr":"3", "url": "/resources/3", "type": "bibliography", "name": "Less than nothing : Hegel and the shadow of dialectical materialism" },
+{ "idr":"4", "url": "/resources/4", "type": "bibliography", "name": "Estudios culturales : reflexiones sobre el multiculturalismo" },
+{ "idr":"7", "url": "/resources/7", "type": "exam", "name": "Fonaments tecnològics de l'e-learning - Examen 2013/05" }
+] }
 
 Creates a new resource
 DELETE /resources/{idr}
