@@ -10,6 +10,9 @@ BALAULA::Application.routes.draw do
   end
 
   resources :resources do
+    collection do
+      get :search
+    end
     resources :courses
   end
 

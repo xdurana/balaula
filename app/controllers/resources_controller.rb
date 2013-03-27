@@ -3,7 +3,6 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     @resources = Resource.all.page(params[:page])
-    #Resource.all.sort({courses_count: -1})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,5 +80,17 @@ class ResourcesController < ApplicationController
       format.html { redirect_to resources_url }
       format.json { head :no_content }
     end
+  end
+
+  # GET /resources/?search
+  # GET /resources.json/?search
+  def search
+    #@resources = Resource.full_text_search(params[:search])
+    @resources = Resource.where(name: /#{Regexp.escape(params[:q])}/).page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @resources }
+    end    
   end
 end
