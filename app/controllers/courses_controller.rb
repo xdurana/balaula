@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
 
     drop_breadcrumb("Courses", courses_path)
-    drop_breadcrumb(@course.name)    
+    drop_breadcrumb(@course.name)
 
     respond_to do |format|
       format.html # show.html.erb

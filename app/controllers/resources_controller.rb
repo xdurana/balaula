@@ -2,7 +2,14 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all.page(params[:page])
+
+    if params[:course_id]
+      @resources = Course.find(params[:course_id]).resources.page(params[:page])
+    elsif params[:activity_id]
+      @resources = Activity.find(params[:activity_id]).resources.page(params[:page])
+    else
+      @resources = Resource.all.page(params[:page])
+    end
 
     drop_breadcrumb("Resources")    
 

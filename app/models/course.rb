@@ -6,5 +6,6 @@ class Course
   field :_id, type: String, default: -> {code}
 
   has_and_belongs_to_many :resources
+  has_many :activities
   validates :code, :name, :presence => true
 end

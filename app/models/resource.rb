@@ -8,6 +8,7 @@ class Resource
   field :courses_count, type: Integer, :default => 0
 	
 	has_and_belongs_to_many :courses
+	has_and_belongs_to_many :resources
 	has_and_belongs_to_many :authors
 
 	validates :name, :presence => true
