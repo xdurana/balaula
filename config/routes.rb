@@ -2,31 +2,37 @@ BALAULA::Application.routes.draw do
 
   resources :authors
 
-
-  get "authenticate/login"
-
-
   resources :courses, :shallow => true do
     collection do
       get :search
     end
-    resources :resources
-  end  
+  end
+
+  resources :resources, :shallow => true do
+    collection do
+      get :search
+    end
+  end
 
   resources :activities, :shallow => true do
     collection do
       get :search
     end
-    resources :resources
-  end
+  end  
 
-  resources :resources do
-    collection do
-      get :search
-    end
+  resources :resources, :shallow => true do
     resources :courses
   end
 
+  resources :courses, :shallow => true do
+    resources :resources
+  end
+
+  resources :activities, :shallow => true do
+    resources :resources
+  end
+
+  get "authenticate/login"
 
   root to: 'static_pages#home'
 

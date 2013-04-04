@@ -5,9 +5,6 @@ class CoursesController < ApplicationController
 
     if params[:resource_id]
       @courses = Resource.find(params[:resource_id]).courses.page(params[:page])
-      @courses.each do |course|
-        puts course.name
-      end
     else
       @courses = Course.all.page(params[:page])
     end

@@ -5,9 +5,6 @@ class ActivitiesController < ApplicationController
     
     if params[:resource_id]
       @activities = Resource.find(params[:resource_id]).activities.page(params[:page])
-      @activities.each do |activity|
-        puts activity.name
-      end
     else
       @activities = Activity.all.page(params[:page])
     end    
