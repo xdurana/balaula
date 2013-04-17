@@ -6,6 +6,9 @@ class Resource
   field :bibid, type: String
   field :raw, type: String
   field :courses_count, type: Integer, :default => 0
+  field :attachment_uid
+
+  file_accessor :attachment
 	
 	has_and_belongs_to_many :courses
 	has_and_belongs_to_many :resources

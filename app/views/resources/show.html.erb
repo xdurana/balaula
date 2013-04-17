@@ -9,6 +9,14 @@
   <%= @resource.bibid %>
 </p>
 <p>
+  <b>Attachment:</b>
+<%=
+  if @resource.attachment
+    @resource.attachment.url
+  end
+%>
+</p>
+<p>
 	<b>Courses:</b>
 	<ul>
     <% for course in @resource.courses %>

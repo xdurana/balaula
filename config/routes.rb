@@ -18,7 +18,7 @@ BALAULA::Application.routes.draw do
     collection do
       get :search
     end
-  end  
+  end
 
   resources :resources, :shallow => true do
     resources :courses

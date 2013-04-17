@@ -1,4 +1,4 @@
-<%= form_for(@resource) do |f| %>
+<%= form_for @resource, :html => {:multipart => true} do |f| %>
   <% if @resource.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
@@ -13,12 +13,20 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
-
+    <%= f.text_field :name %><br />
+  </div>
+  <div class="field">
+    <%= f.label :attachment %><br />
+    <%= f.text_field :attachment_url %><br />
+    <%= f.file_field :attachment %>
+    <%= f.hidden_field :retained_attachment %>
+    <%= f.check_box :remove_attachment %>
+  </div>
+  <div class="field">
     <% for course in Course.all %>
     <div>
-    <%= check_box_tag "resource[course_ids][]", course.id, @resource.courses.include?(course) %>
-    <%= course.name %>
+    <!--%= check_box_tag "resource[course_ids][]", course.id, @resource.courses.include?(course) %-->
+    <!--%= course.name %-->
     </div>
     <% end %>
     

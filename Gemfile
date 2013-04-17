@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 
-gem "mongoid", "~> 3.0.0"
 gem "ims-lti"
 gem "daemons", "~> 1.1.9"
 
@@ -11,15 +10,16 @@ gem "marc", "~> 0.5.0"
 
 gem "nokogiri", "~> 1.5.9"
 
-# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3
 gem "kaminari"
 
 gem 'bootstrap_helper'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'bson_ext'
+gem 'mongo', :require => 'mongo'
+gem "mongoid", "~> 3.0.0"
 gem 'mongoid_search'
+
+gem 'dragonfly', '~>0.9.14'
 
 # Gems used only for assets and not required
 # in production environments by default.
